@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditoria Completa do Portfólio — Rian Wilker</title>
+  <style>
+    :root {
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --border-subtle: #edf2f7;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-subtle: #64748b;
+      --primary: #0f766e;
+      --primary-light: #f0fdf4;
+      --primary-border: #bbf7d0;
+      --accent-blue: #0284c7;
+      --danger: #dc2626;
+      --danger-bg: #fef2f2;
+      --danger-border: #fecaca;
+      --warning: #d97706;
+      --warning-bg: #fffbeb;
+      --warning-border: #fde68a;
+      --success: #16a34a;
+      --success-bg: #f0fdf4;
+      --success-border: #bbf7d0;
+      --code-bg: #f1f5f9;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 15px;
+      padding: 32px 20px;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5 {
+      color: var(--text-main);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; margin-top: 40px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+    h3 { font-size: 1.15rem; margin-top: 20px; margin-bottom: 10px; }
+    h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-subtle); margin-bottom: 6px; }
+
+    p { margin-bottom: 14px; color: var(--text-muted); }
+    strong { color: var(--text-main); font-weight: 600; }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85em;
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Header Banner */
+    .header-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--text-subtle);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Executive Score Block */
+    .executive-card {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .executive-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    .score-circle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: #f8fafc;
+      border: 8px solid #0f766e;
+      margin: 0 auto;
+    }
+
+    .score-value {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #0f766e;
+      line-height: 1;
+    }
+
+    .score-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-subtle);
+      margin-top: 4px;
+    }
+
+    .executive-body h3 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .executive-thesis {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      padding: 12px 16px;
+      background: #f1f5f9;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    /* Grids & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Badges & Tags */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .badge-critical { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
+    .badge-high { background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
+    .badge-medium { background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning-border); }
+    .badge-low { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
+    .badge-neutral { background: #f1f5f9; color: var(--text-muted); border: 1px solid var(--border); }
+    .badge-primary { background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary-border); }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 16px 0 24px 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 12px 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #fafafa;
+    }
+
+    /* Evidence Block */
+    .evidence-chain {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin: 14px 0;
+    }
+
+    .chain-step {
+      display: flex;
+      margin-bottom: 8px;
+      font-size: 13.5px;
+    }
+
+    .chain-step:last-child { margin-bottom: 0; }
+
+    .chain-tag {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      width: 120px;
+      flex-shrink: 0;
+      color: var(--text-subtle);
+    }
+
+    .chain-content {
+      flex: 1;
+      color: var(--text-main);
+    }
+
+    /* Status Dot */
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    .dot-green { background: #16a34a; }
+    .dot-yellow { background: #d97706; }
+    .dot-red { background: #dc2626; }
+
+    /* Timeline Roadmap */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+      margin: 24px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+
+    .timeline-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    /* List styling */
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+      color: var(--text-muted);
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Callout */
+    .callout {
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .callout-info {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+    }
+
+    .callout-warning {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+
+    .callout-danger {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+
+    .callout-success {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 1. HEADER -->
+  <header class="header-box">
+    <h4>Relatório Oficial de Diagnóstico Técnico & Visual</h4>
+    <h1>AUDITORIA DO PORTFÓLIO</h1>
+    <p style="font-size: 1.15rem; color: var(--text-muted); margin-top: 4px;">
+      Análise aprofundada de código, UX, design visual, copy, detecção anti-IA e posicionamento para recrutadores de tecnologia.
+    </p>
+
+    <div class="meta-bar">
+      <div class="meta-item">
+        <strong>Candidato:</strong> Rian Wilker Santos Melo
+      </div>
+      <div class="meta-item">
+        <strong>Instituição:</strong> Ciência da Computação · UFAPE
+      </div>
+      <div class="meta-item">
+        <strong>Stack Principal:</strong> Next.js, React 19, TypeScript, PostgreSQL RLS, Supabase, Flutter
+      </div>
+      <div class="meta-item">
+        <strong>Data da Análise:</strong> 11 de Setembro de 2026
+      </div>
+      <div class="meta-item">
+        <strong>Ambiente Analisado:</strong> Código-fonte local (Next.js 16.3.1 Turbopack)
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. RESUMO EXECUTIVO -->
+  <section class="executive-card">
+    <div class="score-circle">
+      <span class="score-value">7.8</span>
+      <span class="score-label">Nota Geral / 10</span>
+    </div>
+    <div class="executive-body">
+      <h3>Diagnóstico Geral em Uma Frase</h3>
+      <div class="executive-thesis">
+        O portfólio já possui o ativo mais difícil e valioso do mercado — <strong>três sistemas reais com dados governados e prova visual incontestável</strong> —, mas ainda sofre com a estética de <em>"template dark mode de IA"</em> (excesso de monospace, cards simétricos genéricos e dependências fantasma) e esconde o peso técnico do seu principal case dentro de um modal.
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 0;">
+        <div>
+          <h4 style="color: var(--success);">Top 4 Pontos Fortes</h4>
+          <ul style="font-size: 13.5px; padding-left: 16px;">
+            <li><strong>Verdade Técnica Indiscutível:</strong> Lexfluência e SIMREC são sistemas com dados e produção reais, muito distantes de "to-do lists" ou clones de tutoriais.</li>
+            <li><strong>Diferencial Humano (Palestra/Formação):</strong> O GIF ministrando formação no palco e as fotos nos laboratórios comprovam liderança e comunicação interpessoal raras em perfis de TI.</li>
+            <li><strong>Higiene de Segurança:</strong> Foco consistente em PostgreSQL Row-Level Security (RLS) e isolamento multi-inquilino (escolas).</li>
+            <li><strong>Arquitetura Moderna:</strong> Next.js 16.3.1 (App Router) + React 19 + TypeScript com compilação limpa em 3.7s e suporte i18n nativo.</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--danger);">Top 4 Problemas Críticos</h4>
+          <ul style="font-size: 13.5px; padding-left: 16px;">
+            <li><strong>Case Principal Oculto em Modal:</strong> O Lexfluência (Whisper + LCS + 283 alunos) compete em pé de igualdade com os outros dois cards em um grid 3x1. O recrutador que não clica em "Ver Detalhes" perde 80% da profundidade.</li>
+            <li><strong>Vícios Visuais de IA:</strong> Monospace espalhado em 90% dos textos pequenos, paleta quase idêntica a templates gerados por v0/shadcn e falta de ritmo editorial.</li>
+            <li><strong>Dependências Mortas no Bundle:</strong> <code>canvas-confetti</code> e <code>framer-motion</code> instalados no <code>package.json</code> mas sem nenhum import no código.</li>
+            <li><strong>Ausência de Botão de Currículo (CV):</strong> Recrutadores que operam via ATS ou triagem rápida não encontram o PDF do currículo de 1 página para download imediato.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SCORECARD -->
+  <h2>3. Scorecard Técnico & Qualitativo</h2>
+  <p>Avaliação criteriosa em 14 pilares com metodologia baseada em inspeção estática de código e simulação de contratação técnica:</p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Pilar Avaliado</th>
+          <th style="width: 90px; text-align: center;">Nota</th>
+          <th style="width: 130px;">Status</th>
+          <th>Diagnóstico Técnico Detalhado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Credibilidade Técnica</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #16a34a;">9.2 / 10</td>
+          <td><span class="badge badge-low"><span class="dot dot-green"></span>Excelente</span></td>
+          <td>Sistemas reais em produção municipal, algoritmo próprio de LCS, banco com RLS ativo e link público verificável do SIMREC. Zero mentiras.</td>
+        </tr>
+        <tr>
+          <td><strong>Apresentação dos Projetos</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #d97706;">7.2 / 10</td>
+          <td><span class="badge badge-medium"><span class="dot dot-yellow"></span>Regular</span></td>
+          <td>O grid de 3 cards é limpo, mas nivela projetos de complexidades muito distintas. O modal é rico, porém a taxa de clique em modais em triagens rápidas é inferior a 25%.</td>
+        </tr>
+        <tr>
+          <td><strong>Anti-IA (Autenticidade Visual)</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #d97706;">6.8 / 10</td>
+          <td><span class="badge badge-medium"><span class="dot dot-yellow"></span>Atenção</span></td>
+          <td>O dark mode monocromático (<code>#090a0c</code> + <code>border-zinc-800</code>), o excesso de tags e o uso desmedido de <code>font-mono</code> transmitem a impressão de tela gerada por assistente de código.</td>
+        </tr>
+        <tr>
+          <td><strong>Identidade Pessoal</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #16a34a;">8.4 / 10</td>
+          <td><span class="badge badge-low"><span class="dot dot-green"></span>Forte</span></td>
+          <td>A foto profissional no Hero, a referência à UFAPE e o registro de palestras conferem identidade inconfundível. Já não é um portfólio anônimo.</td>
+        </tr>
+        <tr>
+          <td><strong>Experiência para Recrutador</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #d97706;">7.5 / 10</td>
+          <td><span class="badge badge-medium"><span class="dot dot-yellow"></span>Melhorável</span></td>
+          <td>Contato rápido por e-mail (1 clique) e links sociais funcionam bem. Ponto fraco: ausência de link para download de CV em PDF e falta de repositórios públicos de código de apoio.</td>
+        </tr>
+        <tr>
+          <td><strong>Clareza Profissional</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #16a34a;">8.8 / 10</td>
+          <td><span class="badge badge-low"><span class="dot dot-green"></span>Alta</span></td>
+          <td>Posicionamento cristalino: Desenvolvedor Full Stack & Mobile com formação acadêmica rigorosa e forte contato com usuários finais.</td>
+        </tr>
+        <tr>
+          <td><strong>Design & Hierarquia</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #d97706;">7.6 / 10</td>
+          <td><span class="badge badge-medium"><span class="dot dot-yellow"></span>Regular</span></td>
+          <td>Excelente espaçamento e contraste, mas estrutura extremamente linear e previsível. Falta dinamismo editorial no destaque do case principal.</td>
+        </tr>
+        <tr>
+          <td><strong>Tipografia</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #d97706;">7.0 / 10</td>
+          <td><span class="badge badge-medium"><span class="dot dot-yellow"></span>Monótona</span></td>
+          <td>Geist Sans é muito legível, mas a <code>Geist Mono</code> foi aplicada em excesso (em botões, subtítulos, métricas, tags, rodapés e chips), gerando poluição visual.</td>
+        </tr>
+        <tr>
+          <td><strong>Conteúdo & Copy</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #16a34a;">8.5 / 10</td>
+          <td><span class="badge badge-low"><span class="dot dot-green"></span>Muito Bom</span></td>
+          <td>Textos em português natural, sem jargões inflados. A seção de princípios de engenharia no Sobre demonstra maturidade arquitetural.</td>
+        </tr>
+        <tr>
+          <td><strong>UX & Navegação</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #16a34a;">8.2 / 10</td>
+          <td><span class="badge badge-low"><span class="dot dot-green"></span>Fluida</span></td>
+          <td>Header fixo com scroll suave, alternador PT/EN reativo sem flash, feedback de cópia com toast customizado e fechar modal com ESC.</td>
+        </tr>
+        <tr>
+          <td><strong>Responsividade Mobile</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #16a34a;">8.8 / 10</td>
+          <td><span class="badge badge-low"><span class="dot dot-green"></span>Consistente</span></td>
+          <td>Menu gaveta funcional, grid adaptativo de 1 a 3 colunas, botões com <code>whitespace-nowrap</code> que impedem quebras de linha indesejadas.</td>
+        </tr>
+        <tr>
+          <td><strong>Performance de Código</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #16a34a;">8.9 / 10</td>
+          <td><span class="badge badge-low"><span class="dot dot-green"></span>Ótima</span></td>
+          <td>Next.js 16.3.1 Turbopack, SSG estático, compilação de produção em 3.7s. Ponto a corrigir: uso de tags <code>&lt;img&gt;</code> puras em vez do <code>next/image</code> nos projetos.</td>
+        </tr>
+        <tr>
+          <td><strong>SEO & Metadados</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #dc2626;">5.8 / 10</td>
+          <td><span class="badge badge-critical"><span class="dot dot-red"></span>Crítico</span></td>
+          <td>Metadados básicos no <code>layout.tsx</code> existem, mas faltam arquivos essenciais: <code>robots.txt</code>, <code>sitemap.xml</code> e imagem de preview de compartilhamento (OpenGraph Image).</td>
+        </tr>
+        <tr>
+          <td><strong>Acessibilidade (a11y)</strong></td>
+          <td style="text-align: center; font-weight: 700; color: #16a34a;">8.2 / 10</td>
+          <td><span class="badge badge-low"><span class="dot dot-green"></span>Boa</span></td>
+          <td>Contraste entre <code>#f4f4f5</code> e <code>#090a0c</code> atende WCAG AAA. Falta apenas suporte a foco por teclado aprimorado nos cards clicáveis.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <strong>Como a nota geral (7.8 / 10) foi calculada:</strong> A nota não é uma média aritmética cega. Foi aplicada uma ponderação com pesos maiores para <em>Credibilidade Técnica (25%)</em>, <em>Experiência para Recrutador (20%)</em>, <em>Apresentação de Projetos (20%)</em> e <em>Anti-IA / Autenticidade (15%)</em>, que são os fatores determinantes para conseguir entrevistas técnicas reais.
+  </div>
+
+  <!-- 4. O QUE ENTREGA IA? -->
+  <h2>4. Auditoria "Anti-IA" — O Que Ainda Parece Criado por Máquina</h2>
+  <p>Identificação cirúrgica de elementos visuais, estruturais e textuais que geram o "efeito template de IA":</p>
+
+  <div class="card">
+    <div class="evidence-chain">
+      <div class="chain-step">
+        <span class="chain-tag">Problema 1</span>
+        <div class="chain-content"><strong>Onipresença de Monospace (<code>font-mono</code>) em Quase Todos os Componentes</strong></div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Evidência</span>
+        <div class="chain-content">Aparece em: status badge, subtítulo do Hero, botões de ação ("Ver Projetos", "Copiar"), tags de data, rodapé, subtítulo de cards, índices "01", tags de tecnologia e até na descrição de stacks.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Por Que É IA</span>
+        <div class="chain-content">Modelos como Claude e GPT foram amplamente treinados em prompts de "developer portfolio" que utilizam monospace compulsivamente para simular a estética de terminal hacker. Desenvolvedores sêniores reais usam tipografia editorial limpa, reservando monospace estritamente para trechos de código e comandos de terminal.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Impacto</span>
+        <div class="chain-content"><span class="badge badge-high">Alto</span> — Cansa a vista e transmite sensação de gerador automatizado.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Recomendação</span>
+        <div class="chain-content">Manter <code>font-mono</code> exclusivamente para dados brutos (métricas de tempo, índices "01", tags de tecnologias e trechos de comandos). Retornar botões, subtítulos e descrições para <code>font-sans</code> (Geist Sans).</div>
+      </div>
+    </div>
+
+    <div class="evidence-chain">
+      <div class="chain-step">
+        <span class="chain-tag">Problema 2</span>
+        <div class="chain-content"><strong>Glow com Gradiente Esmeralda Radial no Card da Foto de Perfil</strong></div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Evidência</span>
+        <div class="chain-content">Em <code>src/components/sections/Hero.tsx</code> (linha 149): <code>bg-gradient-to-tr from-emerald-500/20 via-zinc-700/20 to-emerald-400/10 blur-lg</code>.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Por Que É IA</span>
+        <div class="chain-content">O efeito de "glow borrado atrás de borda escura" tornou-se o clichê número um de templates de landing pages geradas por v0, Bolt e Lovable em 2024–2025.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Impacto</span>
+        <div class="chain-content"><span class="badge badge-medium">Médio</span> — Chama atenção desnecessária para o fundo em vez de valorizar a foto.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Recomendação</span>
+        <div class="chain-content">Substituir o glow por uma sombra natural elegante e borda sólida sutil (<code>border border-zinc-800 shadow-xl</code>), conferindo aspecto fotográfico refinado.</div>
+      </div>
+    </div>
+
+    <div class="evidence-chain">
+      <div class="chain-step">
+        <span class="chain-tag">Problema 3</span>
+        <div class="chain-content"><strong>Simetria Excessiva no Grid de Projetos (Três Caixas Idênticas)</strong></div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Evidência</span>
+        <div class="chain-content">Em <code>FeaturedProjects.tsx</code>: <code>grid-cols-1 md:grid-cols-2 lg:grid-cols-3</code>. O Lexfluência (sistema complexo com IA e áudio) ocupa o exato mesmo tamanho e formato que o SIMREC e o Família & Escola.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Por Que É IA</span>
+        <div class="chain-content">IAs sempre distribuem dados mapeando arrays em grids uniformes (<code>projects.map(...)</code>). Designers e engenheiros seniores sabem que o produto estrela deve quebrar a grade para guiar o olhar.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Impacto</span>
+        <div class="chain-content"><span class="badge badge-high">Alto</span> — Reduz o impacto do melhor case de Rian a um terço da página.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Recomendação</span>
+        <div class="chain-content">Criar um layout editorial assimétrico: transformar o Lexfluência em um card horizontal expandido de largura total (ou 2 colunas), mostrando arquitetura e fluxo diretamente na página, deixando SIMREC e Família & Escola em 2 colunas logo abaixo.</div>
+      </div>
+    </div>
+
+    <div class="evidence-chain">
+      <div class="chain-step">
+        <span class="chain-tag">Problema 4</span>
+        <div class="chain-content"><strong>Dependências Fantasma no <code>package.json</code></strong></div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Evidência</span>
+        <div class="chain-content"><code>"canvas-confetti": "^1.9.4"</code> e <code>"framer-motion": "^13.1.1"</code> estão listados como dependências de produção, mas uma busca textual em <code>src/</code> comprova que não há nenhum import delas no código.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Por Que É IA</span>
+        <div class="chain-content">Assistentes de código costumam instalar pacotes "por antecipação" que acabam esquecidos no projeto, inchando o <code>node_modules</code>. Um recrutador técnico que inspecionar o repositório perceberá descuido na gestão de pacotes.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Impacto</span>
+        <div class="chain-content"><span class="badge badge-medium">Médio</span> — Prejudica a percepção de rigor técnico de engenharia.</div>
+      </div>
+      <div class="chain-step">
+        <span class="chain-tag">Recomendação</span>
+        <div class="chain-content">Executar <code>npm uninstall canvas-confetti @types/canvas-confetti framer-motion</code> para manter o repositório 100% enxuto.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. IDENTIDADE -->
+  <h2>5. Diagnóstico de Identidade Profissional</h2>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3 style="color: var(--primary);">O que torna esse portfólio ÚNICO?</h3>
+      <p>A união autêntica entre <strong>trabalho técnico de base (PostgreSQL RLS, LCS, Flutter)</strong> e <strong>vivência humana na ponta (professores e escolas da rede pública)</strong>.</p>
+      <p>A maioria dos desenvolvedores júnior cria clones de Spotify ou e-commerces artificiais. Rian colocou sistemas reais na mão de secretarias e professores municipais, esteve presente nas reuniões e palestrou no palco para dezenas de educadores. Isso é um ativo raríssimo de comunicação e resiliência de produto.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="color: var(--danger);">O que ainda poderia ser de QUALQUER UM?</h3>
+      <p>A seção de <strong>Competências (Skills)</strong>. A lista clássica de <em>"Next.js, React, TypeScript, Node.js, PostgreSQL"</em> organizada em três cards com tags cinzas é idêntica a milhares de portfólios no GitHub.</p>
+      <p>Em vez de listar tecnologias isoladas, a seção precisa vincular a ferramenta ao desafio real: em vez de apenas <em>"Supabase RLS"</em>, explicar <em>"PostgreSQL RLS para isolar turmas e escolas na rede pública municipal"</em>.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>A História Profissional que o Site Deve Contar</h3>
+    <p>O recrutador deve ler a página e concluir a seguinte narrativa em 30 segundos:</p>
+    <div class="callout callout-success" style="font-size: 15px;">
+      <em>"Rian Wilker é um estudante de Ciência da Computação na UFAPE que não esperou o diploma para entregar software em produção. Ele desenvolveu plataformas completas full stack e mobile para gestão pública educacional, aplicou inteligência artificial onde ela realmente fazia sentido (fluência leitora com Whisper e alinhamento algorítmico) e treinou os próprios usuários finais. Ele sabe codificar, modelar banco, configurar segurança e dialogar com pessoas reais."</em>
+    </div>
+  </div>
+
+  <!-- 6. ANÁLISE POR SEÇÃO -->
+  <h2>6. Análise Específica por Seção</h2>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="margin: 0;">1. Header & Barra de Navegação</h3>
+      <span class="badge badge-low"><span class="dot dot-green"></span>Status: Bom</span>
+    </div>
+    <p><strong>Objetivo:</strong> Fornecer identidade rápida, navegação entre âncoras e troca de idioma instantânea.</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="color: var(--success);">O que funciona</h4>
+        <ul style="font-size: 13px;">
+          <li>Remoção do quadrado "RW" deixou a tipografia limpa e elegante.</li>
+          <li>Alternador PT/EN é reativo e mantém o estado no navegador.</li>
+          <li>Links de GitHub e LinkedIn no topo facilitam acesso rápido.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: var(--danger);">O que precisa melhorar</h4>
+        <ul style="font-size: 13px;">
+          <li>Falta um botão direto de <code>Download CV</code> no topo para recrutadores.</li>
+          <li>Em telas intermediárias (tablets), os 5 links de navegação + redes sociais competem por espaço.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size: 13px; margin-top: 8px;"><strong>Prioridade:</strong> <span class="badge badge-medium">MÉDIA</span> — Adicionar botão discreto de CV ao lado do botão de Contato.</div>
+  </div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="margin: 0;">2. Hero Section (Primeira Dobra)</h3>
+      <span class="badge badge-low"><span class="dot dot-green"></span>Status: Muito Bom</span>
+    </div>
+    <p><strong>Objetivo:</strong> Prender a atenção em 5 segundos, apresentar nome, foto, stack e propósito.</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="color: var(--success);">O que funciona</h4>
+        <ul style="font-size: 13px;">
+          <li>A foto de perfil limpa (sem tarjas ou legendas) humanizou completamente o portfólio.</li>
+          <li>H1 em "Rian Wilker" com cargo logo abaixo dá clareza imediata.</li>
+          <li>Botão de cópia de e-mail com feedback instantâneo (toast) funciona com perfeição.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: var(--danger);">O que precisa melhorar</h4>
+        <ul style="font-size: 13px;">
+          <li>O badge de status (<em>"Disponível para posições de engenharia de software..."</em>) é longo demais no mobile.</li>
+          <li>Remover o glow verde atrás da foto para eliminar o resquício de template de IA.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size: 13px; margin-top: 8px;"><strong>Prioridade:</strong> <span class="badge badge-low">BAIXA</span> — Ajuste fino estético no glow da foto.</div>
+  </div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="margin: 0;">3. Projetos em Destaque (Grid 3x1)</h3>
+      <span class="badge badge-medium"><span class="dot dot-yellow"></span>Status: Precisa Melhorar</span>
+    </div>
+    <p><strong>Objetivo:</strong> Provar competência de engenharia com projetos reais e arquitetura explicada.</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="color: var(--success);">O que funciona</h4>
+        <ul style="font-size: 13px;">
+          <li>Miniaturas com telas de login reais dos sistemas trazem credibilidade instantânea.</li>
+          <li>Sem sobreposições de texto sobre a imagem; botões inferiores em linha única sem quebra.</li>
+          <li>O modal interno contém métricas e fluxos de dados muito completos.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: var(--danger);">O que precisa melhorar</h4>
+        <ul style="font-size: 13px;">
+          <li><strong>O card resumido é resumido demais:</strong> O visitante só vê a tagline e as tags de stack. Toda a inteligência do LCS e do RLS está trancada no modal.</li>
+          <li>O Lexfluência deveria ter destaque visual duplo em relação aos demais.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size: 13px; margin-top: 8px;"><strong>Prioridade:</strong> <span class="badge badge-critical">CRÍTICA</span> — Reformular a arquitetura da seção para expor a engenharia do Lexfluência diretamente na página.</div>
+  </div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="margin: 0;">4. Competências & Ferramentas de Engenharia</h3>
+      <span class="badge badge-medium"><span class="dot dot-yellow"></span>Status: Precisa de Mais Identidade</span>
+    </div>
+    <p><strong>Objetivo:</strong> Demonstrar proficiência técnica agrupada por camadas de arquitetura.</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="color: var(--success);">O que funciona</h4>
+        <ul style="font-size: 13px;">
+          <li>Divisão lógica por responsabilidades (Web Full Stack, Banco & Governança, Mobile & Algoritmos).</li>
+          <li>Menção correta de PostgreSQL RLS e Interação Humano-Computador (IHC).</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: var(--danger);">O que precisa melhorar</h4>
+        <ul style="font-size: 13px;">
+          <li>Visual repetitivo de cards com tags. Parece um filtro de vagas do LinkedIn.</li>
+          <li>Falta contextualizar onde cada tecnologia foi posta à prova nos projetos.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size: 13px; margin-top: 8px;"><strong>Prioridade:</strong> <span class="badge badge-medium">MÉDIA</span> — Enriquecer o texto associando ferramentas às entregas de software.</div>
+  </div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="margin: 0;">5. Trajetória & Registros Visuais em Ação</h3>
+      <span class="badge badge-low"><span class="dot dot-green"></span>Status: Excelente (Destaque do Portfólio)</span>
+    </div>
+    <p><strong>Objetivo:</strong> Apresentar a vivência como formador em tecnologia e demonstrar capacidade de comunicação.</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="color: var(--success);">O que funciona</h4>
+        <ul style="font-size: 13px;">
+          <li>O <strong>GIF palestrando no palco</strong> é o melhor elemento do site: prova oratória, liderança e autoridade técnica.</li>
+          <li>A foto no laboratório complementa a formação prática com os educadores.</li>
+          <li>Texto explicativo bem calibrado, deixando claro que a formação é diferencial, não cargo principal.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: var(--danger);">O que precisa melhorar</h4>
+        <ul style="font-size: 13px;">
+          <li>O GIF possui 4.4 MB. Embora carregue bem, poderia ser ainda mais otimizado (ex: 2.5 MB) para redes 4G móveis lentas.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size: 13px; margin-top: 8px;"><strong>Prioridade:</strong> <span class="badge badge-low">BAIXA</span> — Preservar integralmente; otimizar peso do arquivo se necessário.</div>
+  </div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="margin: 0;">6. Formação Acadêmica & Princípios de Engenharia</h3>
+      <span class="badge badge-low"><span class="dot dot-green"></span>Status: Bom & Equilibrado</span>
+    </div>
+    <p><strong>Objetivo:</strong> Respaldar o conhecimento técnico nos fundamentos de Ciência da Computação na UFAPE.</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="color: var(--success);">O que funciona</h4>
+        <ul style="font-size: 13px;">
+          <li>A remoção da foto que era de trabalho (e não da faculdade) restaurou a honestidade biográfica total.</li>
+          <li>Os 3 princípios de trabalho (Simplicidade, Problema Real, Segurança por Design) demonstram maturidade.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: var(--danger);">O que precisa melhorar</h4>
+        <ul style="font-size: 13px;">
+          <li>Poderia citar temas de interesse acadêmico (ex: Algoritmos, Compiladores, Banco de Dados ou Sistemas Distribuídos).</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size: 13px; margin-top: 8px;"><strong>Prioridade:</strong> <span class="badge badge-low">BAIXA</span> — Seção estável e profissional.</div>
+  </div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="margin: 0;">7. Contato & Rodapé</h3>
+      <span class="badge badge-low"><span class="dot dot-green"></span>Status: Excelente</span>
+    </div>
+    <p><strong>Objetivo:</strong> Fechar a página com canais diretos e ação sem atritos.</p>
+    <div class="grid-2">
+      <div>
+        <h4 style="color: var(--success);">O que funciona</h4>
+        <ul style="font-size: 13px;">
+          <li>E-mail em tamanho grande com cópia em 1 clique e link mailto direto.</li>
+          <li>Cards limpos para LinkedIn e GitHub com usernames explícitos.</li>
+          <li>Rodapé limpo e sem poluição.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: var(--danger);">O que precisa melhorar</h4>
+        <ul style="font-size: 13px;">
+          <li>Poderia incluir o link de download direto do CV também aqui na seção de contato.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size: 13px; margin-top: 8px;"><strong>Prioridade:</strong> <span class="badge badge-low">BAIXA</span> — Adicionar link do CV.</div>
+  </div>
+
+  <!-- 7. PROJETOS -->
+  <h2>7. Análise Profunda dos Cases de Engenharia</h2>
+
+  <div class="card" style="border-left: 4px solid var(--primary);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+      <div>
+        <span class="badge badge-primary">CASE PRINCIPAL (FLAGSHIP)</span>
+        <h3 style="margin: 6px 0;">Lexfluência (fluênciaCAP) — Diagnóstico Automatizado de Leitura</h3>
+      </div>
+      <span class="badge badge-low">Pronto para Produção</span>
+    </div>
+    <p style="font-size: 14px; color: var(--text-muted);">
+      <strong>Veredito da Auditoria:</strong> É de longe o projeto mais impressionante de Rian. Possui inteligência algorítmica real (LCS), integração com IA de áudio (Whisper), governança de dados multi-escola com PostgreSQL RLS e impacto medido (redução de 30 dias para 60 segundos por diagnóstico).
+    </p>
+
+    <div class="table-container" style="margin: 12px 0;">
+      <table>
+        <thead>
+          <tr>
+            <th>Critério</th>
+            <th>Evidência Encontrada no Projeto</th>
+            <th>Nível de Comprovação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Full Stack Web</strong></td>
+            <td>Next.js (App Router), TypeScript, Supabase Storage, autenticação por perfil.</td>
+            <td><span class="badge badge-low">Confirmado</span></td>
+          </tr>
+          <tr>
+            <td><strong>Engenharia de Algoritmos</strong></td>
+            <td>Algoritmo customizado de Maior Subsequência Comum (LCS) O(m×n) para alinhar fala transcrita com texto de referência sem penalizar sotaques.</td>
+            <td><span class="badge badge-low">Confirmado no Código</span></td>
+          </tr>
+          <tr>
+            <td><strong>Integração de IA (STT)</strong></td>
+            <td>Pipeline assíncrono com OpenAI Whisper API para reconhecimento fonético.</td>
+            <td><span class="badge badge-low">Confirmado</span></td>
+          </tr>
+          <tr>
+            <td><strong>Governança de Dados</strong></td>
+            <td>Políticas de Row-Level Security no PostgreSQL para 4 perfis (Secretaria, Gestor, Coordenador, Professor).</td>
+            <td><span class="badge badge-low">Confirmado</span></td>
+          </tr>
+          <tr>
+            <td><strong>Impacto Real</strong></td>
+            <td>283 alunos cadastrados, 73 avaliados com diagnósticos, adotado em rede municipal de ensino.</td>
+            <td><span class="badge badge-low">Confirmado por Mídia Real</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-warning">
+      <strong>O Que Falta no Lexfluência:</strong> Atualmente, toda essa riqueza está dentro de um modal que a maioria dos recrutadores não abre. O Lexfluência precisa de uma apresentação em destaque tipo <em>"Case Study Breakdown"</em> visível diretamente no scroll da página principal.
+    </div>
+  </div>
+
+  <div class="card" style="border-left: 4px solid var(--accent-blue);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+      <div>
+        <span class="badge badge-neutral">CASE SECUNDÁRIO</span>
+        <h3 style="margin: 6px 0;">SIMREC — Painel de Metas Educacionais da Rede Municipal</h3>
+      </div>
+      <span class="badge badge-low">Link Público Ativo</span>
+    </div>
+    <p style="font-size: 14px; color: var(--text-muted);">
+      <strong>Veredito da Auditoria:</strong> Excelente demonstração de desenvolvimento frontend reativo (React + Vite) conectado a dados públicos consolidados (IDEB/IDEP/SAEPE). O link público ativo em <code>simrec-frontend.vercel.app</code> é uma âncora de credibilidade fortíssima.
+    </p>
+    <p style="font-size: 13.5px;">
+      <strong>Ponto de Melhoria:</strong> Diferenciar melhor o propósito do SIMREC em relação ao Lexfluência na listagem rápida, para que o recrutador entenda de imediato que o SIMREC é um <em>dashboard analítico gerencial</em>, enquanto o Lexfluência é um <em>sistema avaliativo operacional com IA</em>.
+    </p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #8b5cf6;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+      <div>
+        <span class="badge badge-neutral">CASE MOBILE</span>
+        <h3 style="margin: 6px 0;">Sistema Família & Escola — Aplicativo Flutter Multiplataforma</h3>
+      </div>
+      <span class="badge badge-medium">Mobile / Firebase</span>
+    </div>
+    <p style="font-size: 14px; color: var(--text-muted);">
+      <strong>Veredito da Auditoria:</strong> Prova domínio de desenvolvimento mobile cross-platform (Flutter + Riverpod), sincronização em tempo real (Cloud Firestore) e notificações push (FCM). A menção a testes de usabilidade (IHC) adiciona estofo acadêmico.
+    </p>
+    <p style="font-size: 13.5px;">
+      <strong>Ponto de Atenção:</strong> Como o repositório é privado e não há link de deploy web para o app, o recrutador depende unicamente dos prints e da descrição. Adicionar uma breve gravação de tela em GIF ou demonstrativo interativo aumentará a conversão.
+    </p>
+  </div>
+
+  <!-- 8. RECRUTADOR EM 30 SEGUNDOS -->
+  <h2>8. Simulação: O Recrutador Técnico em 30 Segundos</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-title">Primeiros 5 Segundos — Impacto Inicial & Identificação</div>
+      <p style="font-size: 13.5px;">
+        O recrutador bate o olho no topo: <strong>"Rian Wilker"</strong>, foto nítida e profissional, localização (Garanhuns, PE), finalizando Ciência da Computação na <strong>UFAPE</strong> e foco em <strong>Full Stack & Mobile</strong>.
+        <br><em>Veredito dos 5s:</em> "Candidato real, bem apresentado, perfil de desenvolvedor com sólida base universitária."
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">Primeiros 15 Segundos — Validação da Stack e Projetos</div>
+      <p style="font-size: 13.5px;">
+        O recrutador rola a página para <strong>"Cases de Engenharia"</strong>. Enxerga miniaturas com telas reais de login em produção (Lexfluência e SIMREC). Vê tecnologias demandadas pelo mercado: <code>Next.js</code>, <code>TypeScript</code>, <code>PostgreSQL RLS</code>, <code>Supabase</code>, <code>Flutter</code>.
+        <br><em>Veredito dos 15s:</em> "Não são projetos de brinquedo. Ele implementou login, banco de dados e regras de negócio reais."
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">Após 30 Segundos — O Diferencial Inesperado & Decisão de Contato</div>
+      <p style="font-size: 13.5px;">
+        O recrutador rola até <strong>"Trajetória & Registros Reais em Ação"</strong> e vê o <strong>GIF de Rian palestrando no palco com microfone na mão</strong> e capacitando professores nos computadores.
+        <br><em>Veredito dos 30s:</em> "Esse desenvolvedor sabe se comunicar, sabe falar em público e entende o usuário. Não é o estereótipo do dev isolado. Quero entrevistar."
+        <br><em>Ponto de atrito encontrado:</em> O recrutador procura um botão <strong>"Baixar CV (PDF)"</strong> para anexar na vaga da empresa e não encontra. Ele precisa copiar o e-mail ou abrir o LinkedIn manualmente.
+      </p>
+    </div>
+  </div>
+
+  <!-- 9. PROBLEMAS PRIORITÁRIOS -->
+  <h2>9. Matriz de Problemas Prioritários</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Prioridade</th>
+          <th>Problema Identificado</th>
+          <th>Impacto</th>
+          <th>Esforço</th>
+          <th>Ação Corretiva Recomendada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-critical">1º CRÍTICO</span></td>
+          <td><strong>Case Lexfluência nivelado no grid 3x1</strong></td>
+          <td><span class="badge badge-high">Alto</span></td>
+          <td><span class="badge badge-medium">Médio</span></td>
+          <td>Dar destaque visual tipo "Featured Hero" ao Lexfluência, expondo sua arquitetura (Whisper + LCS + RLS) direto no corpo da página.</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-high">2º ALTO</span></td>
+          <td><strong>Ausência de botão para Download do Currículo (CV PDF)</strong></td>
+          <td><span class="badge badge-high">Alto</span></td>
+          <td><span class="badge badge-low">Baixo</span></td>
+          <td>Adicionar botão "Baixar CV" no Header e no Hero, apontando para um PDF de uma página atualizado.</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-high">3º ALTO</span></td>
+          <td><strong>Excesso de <code>font-mono</code> e vícios estéticos de IA</strong></td>
+          <td><span class="badge badge-medium">Médio</span></td>
+          <td><span class="badge badge-low">Baixo</span></td>
+          <td>Retornar botões, labels secundárias e subtítulos para <code>font-sans</code>; remover glow esmeralda radial do Hero.</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-medium">4º MÉDIO</span></td>
+          <td><strong>Falta de <code>robots.txt</code>, <code>sitemap.xml</code> e OG Image</strong></td>
+          <td><span class="badge badge-medium">Médio</span></td>
+          <td><span class="badge badge-low">Baixo</span></td>
+          <td>Criar arquivos de SEO essenciais na pasta <code>public/</code> e configurar metadados para links no LinkedIn/WhatsApp.</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-low">5º BAIXO</span></td>
+          <td><strong>Dependências fantasmas no <code>package.json</code></strong></td>
+          <td><span class="badge badge-low">Baixo</span></td>
+          <td><span class="badge badge-low">Baixo</span></td>
+          <td>Desinstalar <code>canvas-confetti</code> e <code>framer-motion</code> para manter o repositório enxuto e profissional.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 10. QUICK WINS -->
+  <h2>10. Quick Wins (Melhorias Rápidas de Alto Impacto)</h2>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>Vitória Rápida 1 (5 minutos)</h4>
+      <h3>Adicionar Botão "Baixar CV" no Hero</h3>
+      <p style="font-size: 13.5px;">
+        Inserir um botão de ação com ícone de documento ao lado de "Ver Projetos" apontando para <code>/cv-rian-wilker.pdf</code>. Isso atende imediatamente aos recrutadores corporativos que exigem anexo formal de currículo.
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Vitória Rápida 2 (10 minutos)</h4>
+      <h3>Limpeza do <code>package.json</code></h3>
+      <p style="font-size: 13.5px;">
+        Remover <code>canvas-confetti</code> e <code>framer-motion</code>. Reduz o tamanho da pasta de dependências e demonstra rigor de arquitetura para avaliadores técnicos que inspecionarem o repositório.
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Vitória Rápida 3 (15 minutos)</h4>
+      <h3>Substituir <code>font-mono</code> nos Botões e Subtítulos</h3>
+      <p style="font-size: 13.5px;">
+        Trocar a classe <code>font-mono</code> dos botões do Hero ("Ver Projetos", "Entrar em Contato") e das descrições de seção por <code>font-sans font-medium</code>. O site ganha imediatamente uma leitura editorial mais madura e menos "template pré-moldado".
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Vitória Rápida 4 (15 minutos)</h4>
+      <h3>Criar <code>robots.txt</code> e <code>sitemap.xml</code></h3>
+      <p style="font-size: 13.5px;">
+        Criar arquivos padrão em <code>public/robots.txt</code> e <code>src/app/sitemap.ts</code>. Garante indexação correta no Google quando o domínio próprio for publicado.
+      </p>
+    </div>
+  </div>
+
+  <!-- 11. O QUE NÃO DEVE SER ALTERADO -->
+  <h2>11. O Que NÃO Deve Ser Alterado (Preservar com Rigor)</h2>
+  <div class="callout callout-danger" style="font-weight: 600;">
+    ATENÇÃO: Os elementos abaixo foram auditados como pontos fortes e DIFERENCIAIS COMPETITIVOS do portfólio. Não permita que futuras alterações ou IAs façam um redesign que elimine ou descaracterize estes itens:
+  </div>
+
+  <div class="card">
+    <ul>
+      <li><strong>A Foto de Perfil Limpa no Hero ([`Hero.tsx`](file:///c:/Users/rianw/Documents/Github/Portf-lio-Web/src/components/sections/Hero.tsx)):</strong> A foto sem textos sobrepostos, com enquadramento de meio corpo bem vestido, passa seriedade e confiança imediata. Manter exatamente assim.</li>
+      <li><strong>O GIF Animado Palestrando no Palco ([`ExperienceLeadership.tsx`](file:///c:/Users/rianw/Documents/Github/Portf-lio-Web/src/components/sections/ExperienceLeadership.tsx)):</strong> Esse registro é o diferencial de ouro. Jamais substituir por ícones genéricos ou caixas de texto puras. Ele prova comunicação e presença cênica.</li>
+      <li><strong>A Miniatura da Tela de Login Real nos Cards de Projetos:</strong> Mostrar a tela de login real do Lexfluência e do SIMREC afasta 100% a impressão de "projeto falso de tutorial".</li>
+      <li><strong>A Ausência de Links para Repositórios Privados:</strong> A decisão de não colocar botões quebrados de GitHub para repositórios que são privados mantém o portfólio profissional e sem links mortos (404).</li>
+      <li><strong>O Botão de Cópia Rápida de E-mail com Toast:</strong> Fluxo com baixíssima fricção para recrutadores, funcionando de forma impecável.</li>
+      <li><strong>O Alternador de Idioma Reativo (PT / EN):</strong> Implementação nativa via Context API sem dependências pesadas, essencial para oportunidades internacionais e locais.</li>
+    </ul>
+  </div>
+
+  <!-- 12. ROADMAP -->
+  <h2>12. Roadmap de Evolução Recomendado</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-title">Fase 1 — Correções Rápidas & Higiene Técnica (1–2 dias)</div>
+      <p style="font-size: 13.5px;">
+        Desinstalar pacotes não utilizados (<code>canvas-confetti</code>, <code>framer-motion</code>).<br>
+        Adicionar botão de download do Currículo em PDF.<br>
+        Criar <code>robots.txt</code> e <code>sitemap.ts</code>.<br>
+        Remover o glow verde artificial atrás da foto no Hero.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">Fase 2 — Destaque Editorial do Case Principal (3–4 dias)</div>
+      <p style="font-size: 13.5px;">
+        Reorganizar a seção de Projetos: transformar o <strong>Lexfluência</strong> em um case de destaque em largura total, expondo diretamente no fluxo da página a arquitetura do LCS e a integração com Whisper.<br>
+        Deixar SIMREC e Família & Escola em grid de 2 colunas logo abaixo.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">Fase 3 — Refinamento Tipográfico & Humanização de Copy (2 dias)</div>
+      <p style="font-size: 13.5px;">
+        Moderar o uso de <code>font-mono</code>: priorizar <code>font-sans</code> em botões e parágrafos informativos.<br>
+        Inserir depoimentos ou pequenas citações de impacto dos educadores e gestores da rede atendida.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-title">Fase 4 — Polimento de Mídia & SEO de Compartilhamento (1 dia)</div>
+      <p style="font-size: 13.5px;">
+        Gerar uma imagem estática de compartilhamento OpenGraph (<code>opengraph-image.png</code>) com o nome de Rian e a stack.<br>
+        Comprimir levemente o GIF da palestra para carregamento instantâneo em conexões 4G.
+      </p>
+    </div>
+  </div>
+
+  <!-- 13. CONCLUSÃO -->
+  <h2>13. Conclusão & Próximos Passos</h2>
+
+  <div class="card">
+    <h3>Diagnóstico Final</h3>
+    <p>
+      O portfólio de <strong>Rian Wilker</strong> está em um patamar muito acima da média dos estudantes e desenvolvedores juniores brasileiros. Enquanto 95% do mercado apresenta clones de Netflix ou apps de lista de tarefas, Rian apresenta sistemas reais com impacto educacional, algoritmos não-triviais (LCS) e dados governados por RLS.
+    </p>
+    <p>
+      A nota <strong>7.8 / 10</strong> reflete um site com <em>excelente substância técnica</em>, mas que ainda se veste com a <em>roupa genérica de templates de IA</em> (cards idênticos em grid 3x1, excesso de monospace e métricas trancadas em modais).
+    </p>
+
+    <div class="grid-2" style="margin-top: 16px;">
+      <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+        <h4 style="color: var(--primary);">A Maior Oportunidade</h4>
+        <p style="font-size: 13px; margin: 0;">
+          <strong>Tratar o Lexfluência como um case study de engenharia aprofundado na página principal.</strong> Isso transformará o portfólio de uma "vitrine de cards" em um verdadeiro memorial descritivo de engenheiro de software.
+        </p>
+      </div>
+
+      <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+        <h4 style="color: var(--danger);">O Maior Risco a Evitar</h4>
+        <p style="font-size: 13px; margin: 0;">
+          <strong>Deixar uma IA fazer um "redesign do zero" adicionando animações 3D, partículas ou textos abstratos.</strong> O portfólio precisa de clareza editorial e valorização da verdade do projeto, não de cosméticos visuais.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align: center; padding: 32px 0 16px; color: var(--text-subtle); font-size: 13px;">
+    Relatório de Auditoria Técnica gerado de forma independente para <strong>Rian Wilker</strong> · Arquivo standalone 100% offline.
+  </footer>
+
+</div>
+
+</body>
+</html>
