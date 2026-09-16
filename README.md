@@ -109,8 +109,8 @@ Portf-lio-Web/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/RWilker87/Portf-lio-Web.git
-cd Portf-lio-Web
+git clone https://github.com/RWilker87/Portifolio-Web.git
+cd Portifolio-Web
 ```
 
 2. Instale as dependências:
@@ -146,8 +146,4 @@ http://localhost:3000
 * **LinkedIn:** [rian-wilker-63804b205](https://linkedin.com/in/rian-wilker-63804b205)
 * **E-mail:** [rianwilker17@gmail.com](mailto:rianwilker17@gmail.com)
 
----
 
-## 📄 Licença
-
-Este projeto está sob a licença [MIT](LICENSE) — sinta-se à vontade para utilizar o código como inspiração para seu próprio portfólio.
