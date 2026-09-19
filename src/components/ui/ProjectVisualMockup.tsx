@@ -40,7 +40,7 @@ export const ProjectVisualMockup: React.FC<ProjectVisualMockupProps> = ({
         ]
       : null);
 
-  // Case 1: Real Production Screenshots Gallery (Lexfluência & SIMREC)
+  // Case 1: Real Production Screenshots Gallery (fluênciaCAP & SIMREC)
   if (gallery && gallery.length > 0) {
     const currentItem = gallery[activeImageIndex] || gallery[0];
 
@@ -100,14 +100,22 @@ export const ProjectVisualMockup: React.FC<ProjectVisualMockupProps> = ({
 
           {/* Screenshot Viewport */}
           <div
-            className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-950 cursor-pointer"
+            className={cn(
+              "relative aspect-[16/9] w-full overflow-hidden bg-zinc-950 cursor-pointer flex items-center justify-center",
+              currentItem.url.includes("logo") && "bg-gradient-to-b from-zinc-900/90 via-zinc-950 to-zinc-900/90"
+            )}
             onClick={() => setLightboxOpen(true)}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={currentItem.url}
               alt={currentItem.title}
-              className="w-full h-full object-cover object-top transition-transform duration-200 group-hover:scale-[1.01]"
+              className={cn(
+                "transition-transform duration-200 group-hover:scale-[1.01]",
+                currentItem.url.includes("logo")
+                  ? "w-full h-full object-contain p-6 drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+                  : "w-full h-full object-cover object-top"
+              )}
             />
 
             {/* Hover overlay hint */}
@@ -126,6 +134,41 @@ export const ProjectVisualMockup: React.FC<ProjectVisualMockupProps> = ({
           </div>
         </div>
 
+        {/* 3 Pillars of Mobile Engineering for familia-escola */}
+        {project.id === "familia-escola" && (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80">
+              <div className="flex items-center gap-1.5 text-zinc-200 font-bold text-[11px] mb-1">
+                <Zap className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>Chamada em Lote</span>
+              </div>
+              <p className="text-[11px] text-zinc-400 leading-relaxed font-sans">
+                Registro de frequência em menos de 2 minutos por turma, desenhado para sala de aula.
+              </p>
+            </div>
+
+            <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80">
+              <div className="flex items-center gap-1.5 text-zinc-200 font-bold text-[11px] mb-1">
+                <Bell className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>Notificações FCM</span>
+              </div>
+              <p className="text-[11px] text-zinc-400 leading-relaxed font-sans">
+                Disparo instantâneo de alertas de ausência no celular dos pais cadastrados.
+              </p>
+            </div>
+
+            <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80">
+              <div className="flex items-center gap-1.5 text-zinc-200 font-bold text-[11px] mb-1">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>Validação IHC</span>
+              </div>
+              <p className="text-[11px] text-zinc-400 leading-relaxed font-sans">
+                Fluxo avaliado por métodos formais de IHC para garantir usabilidade sem atrito.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Fullscreen Lightbox Modal */}
         {lightboxOpen && (
           <div
@@ -138,18 +181,17 @@ export const ProjectVisualMockup: React.FC<ProjectVisualMockupProps> = ({
             >
               <div className="flex items-center justify-between pb-3 mb-2 border-b border-zinc-800">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-mono font-bold text-zinc-100">
+                  <span className="text-sm font-bold font-mono text-zinc-100">
                     {currentItem.title}
                   </span>
-                  <span className="text-xs font-mono text-zinc-400">
-                    ({activeImageIndex + 1} de {gallery.length})
+                  <span className="text-xs text-zinc-500 font-mono">
+                    ({activeImageIndex + 1}/{gallery.length})
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(false)}
-                  className="p-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white cursor-pointer"
-                  aria-label="Fechar ampliação"
+                  className="p-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -160,7 +202,12 @@ export const ProjectVisualMockup: React.FC<ProjectVisualMockupProps> = ({
                 <img
                   src={currentItem.url}
                   alt={currentItem.title}
-                  className="max-w-full max-h-full object-contain rounded-lg"
+                  className={cn(
+                    "rounded-lg",
+                    currentItem.url.includes("logo")
+                      ? "max-w-full max-h-full object-contain p-4 drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                      : "max-w-full max-h-full object-contain"
+                  )}
                 />
               </div>
 

@@ -50,9 +50,9 @@ Portf-lio-Web/
 ├── public/                    # Mídias estáticas otimizadas para web
 │   ├── media/
 │   │   ├── eu/                # Fotos de perfil e registros de atuação
-│   │   ├── lexfluencia/       # Telas e diagramas do Lexfluência (fluênciaCAP)
+│   │   ├── fluenciacap/       # Telas e diagramas do fluênciaCAP
 │   │   ├── simrec/            # Dashboards analíticos do SIMREC
-│   │   └── familia-escola/    # Mockups e telas do app Família & Escola
+│   │   └── familia-escola/    # Logotipo oficial e telas do app Família & Escola
 │   ├── robots.txt             # Diretivas de indexação para buscadores
 │   └── favicon.ico            # Ícone do navegador
 ├── src/
@@ -93,7 +93,7 @@ Portf-lio-Web/
 
 ## 🌟 Principais Destaques & Case Studies
 
-* **Lexfluência (fluênciaCAP):** Plataforma web de IA para avaliação automatizada de fluência leitora em redes municipais. Integração de OpenAI Whisper com algoritmo de Longest Common Subsequence (LCS) e banco PostgreSQL com Row-Level Security (RLS) para 4 perfis de governança.
+* **fluênciaCAP:** Plataforma web de IA para avaliação automatizada de fluência leitora em redes municipais. Integração de OpenAI Whisper com algoritmo de Longest Common Subsequence (LCS) e banco PostgreSQL com Row-Level Security (RLS) para 4 perfis de governança.
 * **SIMREC (Sistema de Monitoramento e Metas):** Dashboard analítico governamental para acompanhamento de metas pedagógicas (IDEB/IDEP) e gestão de indicadores educacionais em tempo real.
 * **Sistema Família & Escola:** Aplicativo móvel em Flutter e Firebase voltado à integração escolar, notificações em tempo real e lançamento ágil de frequência com validação IHC.
 

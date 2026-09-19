@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Image from "next/image";
 import { CaseStudy } from "@/types";
 import { X, CheckCircle2, Globe, ArrowUpRight } from "lucide-react";
 import { Badge } from "./Badge";
@@ -18,16 +19,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   isOpen,
   onClose,
 }) => {
-  const { content } = useLanguage();
+  const { content, language } = useLanguage();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
+
     if (isOpen) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
     }
+
     return () => {
       document.body.style.overflow = "unset";
       window.removeEventListener("keydown", handleKeyDown);
@@ -40,21 +43,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-sm animate-in fade-in duration-150"
       onClick={onClose}
-      role="dialog"
-      aria-modal="true"
     >
       <div
-        className="relative w-full max-w-3xl rounded-2xl bg-zinc-950 border border-zinc-800 shadow-2xl p-6 sm:p-8 my-8 text-left max-h-[90vh] overflow-y-auto"
+        className="relative max-w-4xl w-full my-auto bg-zinc-950 border border-zinc-800 rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          type="button"
-          className="absolute top-5 right-5 p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors cursor-pointer"
-          aria-label="Fechar janela"
+          className="absolute top-5 right-5 p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors cursor-pointer"
+          aria-label={language === "en" ? "Close modal" : "Fechar modal"}
         >
-          <X className="w-4 h-4" />
+          <X className="w-5 h-5" />
         </button>
 
         {/* Header */}
@@ -65,6 +65,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             <span className="text-xs font-mono text-zinc-400">{project.role}</span>
           </div>
           <div className="flex flex-wrap items-center gap-3">
+            {project.id === "familia-escola" && (
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-zinc-900 border border-zinc-800 p-1 flex items-center justify-center shadow-sm">
+                <Image
+                  src="/media/familia-escola/logo-familia-escola.png"
+                  alt="Logo Família & Escola"
+                  fill
+                  className="object-contain p-0.5"
+                />
+              </div>
+            )}
             <h3 className="text-2xl sm:text-3xl font-bold text-zinc-100 tracking-tight">
               {project.title}
             </h3>

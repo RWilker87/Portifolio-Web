@@ -7,17 +7,17 @@ Coloque aqui as capturas de tela, fotos, GIFs e gravações de demonstração do
 - **Screenshots:** `.png`, `.webp` ou `.jpg` (proporção 9:16 ou tela de celular Android / 1080x2400)
 
 ### 🚀 Exemplos de Nomes de Arquivo:
+- `logo-familia-escola.png` (logotipo oficial em alta definição)
+- `app-preview.png` (demonstração da interface mobile)
 - `familia-escola-chamada.gif` (gravação do lançamento rápido de frequência)
-- `familia-escola-push.png` (captura da notificação recebida pelos pais)
-- `familia-escola-screen.png` (captura da tela inicial do aplicativo Flutter)
 
 ### 🔗 Como ativar no site:
 No arquivo `src/lib/data.ts`, configure:
 ```typescript
 visualPreview: {
   type: "mobile",
-  badge: "App Android (Flutter)",
-  caption: "Demonstração do fluxo de chamada em lote e notificações em tempo real",
-  mediaUrl: "/media/familia-escola/familia-escola-chamada.gif",
+  badge: "Identidade & App Mobile",
+  caption: "Logotipo oficial e telas do aplicativo Sistema Família & Escola",
+  mediaUrl: "/media/familia-escola/logo-familia-escola.png",
 }
 ```

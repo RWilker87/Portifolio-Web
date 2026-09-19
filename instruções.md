@@ -49,7 +49,7 @@ Documento de especificação técnica, arquitetura de informação e diretrizes 
 
 ### 3.3. Featured Projects (Case Studies)
 
-#### 🔹 1. Lexfluência (fluenciaCAP)
+#### 🔹 1. fluênciaCAP
 * **Categoria:** AI & EdTech Platform
 * **Stack:** Next.js (App Router), React, TypeScript, Tailwind CSS, Supabase (PostgreSQL/Storage), OpenAI Whisper API, Custom LCS Algorithm.
 * **Problema:** Avaliação manual e lenta de fluência leitora em redes municipais de ensino, propensa a inconsistências de medição.

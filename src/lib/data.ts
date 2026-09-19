@@ -42,9 +42,9 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
     },
     caseStudies: [
       {
-        id: "lexfluencia",
+        id: "fluenciacap",
         featured: true,
-        title: "Lexfluência (fluênciaCAP)",
+        title: "fluênciaCAP",
         role: "Desenvolvedor Full Stack & Arquitetura",
         tagline: "Plataforma web para avaliação automatizada de fluência leitora em redes municipais de ensino",
         domain: "Web Full Stack · IA Aplicada · EdTech",
@@ -75,27 +75,27 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           type: "desktop",
           badge: "Telas Reais de Produção",
           caption: "Portal de autenticação por perfil, painel analítico da rede e perfil de diagnóstico do estudante.",
-          mediaUrl: "/media/lexfluencia/tela-login.png",
+          mediaUrl: "/media/fluenciacap/tela-login.png",
           gallery: [
             {
               title: "Portal de Autenticação",
-              url: "/media/lexfluencia/tela-login.png",
+              url: "/media/fluenciacap/tela-login.png",
               caption: "Login com controle de acesso por perfil (Secretaria, Gestor, Coordenador e Professor).",
             },
             {
               title: "Painel Analítico da Rede",
-              url: "/media/lexfluencia/dashboard-resultados.png",
+              url: "/media/fluenciacap/dashboard-resultados.png",
               caption: "Visão consolidada da rede municipal (283 alunos cadastrados, 73 avaliados com diagnósticos).",
             },
             {
               title: "Diagnóstico Individual",
-              url: "/media/lexfluencia/diagnostico-aluno.png",
+              url: "/media/fluenciacap/diagnostico-aluno.png",
               caption: "Métricas detalhadas do aluno: Score IFL 97, Precisão 98.2%, Compreensão 100%, Leitor Fluente.",
             },
             {
               title: "Apresentação & Lançamento Oficial",
               url: "/media/eu/apresentacao-fluenciacap.jpg",
-              caption: "Apresentação e lançamento oficial do Lexfluência para gestores e educadores da rede municipal.",
+              caption: "Apresentação e lançamento oficial do fluênciaCAP para gestores e educadores da rede municipal.",
             },
           ],
         },
@@ -219,9 +219,21 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
         ],
         visualPreview: {
           type: "mobile",
-          badge: "Aplicativo Mobile Flutter",
-          caption: "Aplicativo multiplataforma com sincronização em tempo real e notificações push automáticas.",
-          mediaUrl: "/media/familia-escola/app-preview.png",
+          badge: "Identidade & App Mobile",
+          caption: "Logotipo oficial e telas do aplicativo Sistema Família & Escola.",
+          mediaUrl: "/media/familia-escola/logo-familia-escola.png",
+          gallery: [
+            {
+              title: "Logotipo Oficial",
+              url: "/media/familia-escola/logo-familia-escola.png",
+              caption: "Identidade visual oficial do aplicativo Sistema Família & Escola.",
+            },
+            {
+              title: "Interface do App",
+              url: "/media/familia-escola/app-preview.png",
+              caption: "Fluxo de registro de frequência e disparo de notificações aos responsáveis.",
+            },
+          ],
         },
         architecture: {
           overview:
@@ -248,19 +260,19 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           {
             name: "Next.js & React",
             description: "App Router, Server Components, rotas de API, renderização otimizada e gerenciamento de estado.",
-            appliedIn: "Lexfluência & SIMREC",
+            appliedIn: "fluênciaCAP & SIMREC",
             tags: ["Next.js", "React 19", "App Router", "SSR/SSG"],
           },
           {
             name: "TypeScript & JavaScript",
             description: "Tipagem estática estrita, contratos de dados bem definidos e código assíncrono modular.",
-            appliedIn: "Lexfluência & Portfólio",
+            appliedIn: "fluênciaCAP & Portfólio",
             tags: ["TypeScript", "JavaScript (ES6+)", "Zod", "APIs REST"],
           },
           {
             name: "Tailwind CSS & Interface",
             description: "Design systems consistentes, interfaces responsivas, acessibilidade e microinterações.",
-            appliedIn: "Lexfluência & SIMREC",
+            appliedIn: "fluênciaCAP & SIMREC",
             tags: ["Tailwind CSS", "CSS Modules", "Acessibilidade", "Design Limpo"],
           },
           {
@@ -278,13 +290,13 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           {
             name: "PostgreSQL & Supabase",
             description: "Modelagem relacional, consultas SQL, índices, storage e autenticação gerenciada.",
-            appliedIn: "Lexfluência & SIMREC",
+            appliedIn: "fluênciaCAP & SIMREC",
             tags: ["PostgreSQL", "Supabase", "SQL", "Storage"],
           },
           {
             name: "Row-Level Security (RLS) & RBAC",
             description: "Isolamento de dados multi-tenant e controle de acesso granular configurado diretamente no banco.",
-            appliedIn: "Lexfluência & SIMREC (Multi-Escola)",
+            appliedIn: "fluênciaCAP & SIMREC (Multi-Escola)",
             tags: ["RLS", "RBAC", "Políticas SQL", "Segurança"],
           },
           {
@@ -296,7 +308,7 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           {
             name: "APIs & Ingestão de Áudio",
             description: "Construção de endpoints RESTful, upload de arquivos e integração com APIs de inteligência artificial.",
-            appliedIn: "Lexfluência (Whisper STT)",
+            appliedIn: "fluênciaCAP (Whisper STT)",
             tags: ["RESTful", "Audio Upload", "JSON", "Fetch API"],
           },
         ],
@@ -320,7 +332,7 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           {
             name: "Algoritmos & IA Aplicada",
             description: "Integração da OpenAI Whisper API e implementação de algoritmo LCS para alinhamento textual.",
-            appliedIn: "Lexfluência (Diffing LCS O(m×n))",
+            appliedIn: "fluênciaCAP (Diffing LCS O(m×n))",
             tags: ["Whisper API", "Algoritmo LCS", "Diffing", "Speech-to-Text"],
           },
           {
@@ -412,9 +424,9 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
     },
     caseStudies: [
       {
-        id: "lexfluencia",
+        id: "fluenciacap",
         featured: true,
-        title: "Lexfluência (fluênciaCAP)",
+        title: "fluênciaCAP",
         role: "Full Stack Developer & Architecture",
         tagline: "Automated reading fluency diagnostic web platform for municipal schools",
         domain: "Full Stack Web · Applied AI · EdTech",
@@ -445,27 +457,27 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           type: "desktop",
           badge: "Live Production Screenshots",
           caption: "Authentication portal, district analytics dashboard, and individual student fluency report.",
-          mediaUrl: "/media/lexfluencia/tela-login.png",
+          mediaUrl: "/media/fluenciacap/tela-login.png",
           gallery: [
             {
               title: "Authentication Portal",
-              url: "/media/lexfluencia/tela-login.png",
+              url: "/media/fluenciacap/tela-login.png",
               caption: "Role-scoped login gateway (Department, Principal, Coordinator, Teacher).",
             },
             {
               title: "District Analytics Dashboard",
-              url: "/media/lexfluencia/dashboard-resultados.png",
+              url: "/media/fluenciacap/dashboard-resultados.png",
               caption: "Municipal reading proficiency overview (283 enrolled students, 73 evaluated).",
             },
             {
               title: "Student Diagnostic Profile",
-              url: "/media/lexfluencia/diagnostico-aluno.png",
+              url: "/media/fluenciacap/diagnostico-aluno.png",
               caption: "Student reading breakdown: Score 97, 98.2% Accuracy, 100% Comprehension, Fluent Reader.",
             },
             {
               title: "Official Launch & Presentation",
               url: "/media/eu/apresentacao-fluenciacap.jpg",
-              caption: "Official presentation and municipal launch of Lexfluência to school leaders and educators.",
+              caption: "Official presentation and municipal launch of fluênciaCAP to school leaders and educators.",
             },
           ],
         },
@@ -589,9 +601,21 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
         ],
         visualPreview: {
           type: "mobile",
-          badge: "Flutter Mobile Application",
-          caption: "Cross-platform mobile app with optimistic state updates and instant push notifications.",
-          mediaUrl: "/media/familia-escola/app-preview.png",
+          badge: "Brand & Mobile App",
+          caption: "Official logo and screens of Sistema Família & Escola mobile app.",
+          mediaUrl: "/media/familia-escola/logo-familia-escola.png",
+          gallery: [
+            {
+              title: "Official Logo",
+              url: "/media/familia-escola/logo-familia-escola.png",
+              caption: "Official visual identity and logo of Sistema Família & Escola.",
+            },
+            {
+              title: "App Interface",
+              url: "/media/familia-escola/app-preview.png",
+              caption: "Attendance flow and push alert notification stream for student guardians.",
+            },
+          ],
         },
         architecture: {
           overview:
@@ -618,19 +642,19 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           {
             name: "Next.js & React",
             description: "App Router, Server Components, API routes, streaming SSR, and optimized rendering.",
-            appliedIn: "Lexfluência & SIMREC",
+            appliedIn: "fluênciaCAP & SIMREC",
             tags: ["Next.js", "React 19", "App Router", "SSR/SSG"],
           },
           {
             name: "TypeScript & JavaScript",
             description: "Strict static typing, validated schema contracts, and clean modular asynchronous code.",
-            appliedIn: "Lexfluência & Portfolio",
+            appliedIn: "fluênciaCAP & Portfolio",
             tags: ["TypeScript", "JavaScript (ES6+)", "Zod", "REST APIs"],
           },
           {
             name: "Tailwind CSS & Interface Design",
             description: "Design tokens, accessible layout composition, and purposeful microinteractions.",
-            appliedIn: "Lexfluência & SIMREC",
+            appliedIn: "fluênciaCAP & SIMREC",
             tags: ["Tailwind CSS", "CSS Modules", "Accessibility", "Clean UI"],
           },
           {
@@ -648,13 +672,13 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           {
             name: "PostgreSQL & Supabase",
             description: "Relational schema design, SQL queries, indexing, storage buckets, and managed auth.",
-            appliedIn: "Lexfluência & SIMREC",
+            appliedIn: "fluênciaCAP & SIMREC",
             tags: ["PostgreSQL", "Supabase", "SQL", "Storage"],
           },
           {
             name: "Row-Level Security (RLS) & RBAC",
             description: "Multi-tenant data isolation and role-scoped permissions enforced directly in database policies.",
-            appliedIn: "Lexfluência & SIMREC (Multi-School)",
+            appliedIn: "fluênciaCAP & SIMREC (Multi-School)",
             tags: ["RLS", "RBAC", "SQL Policies", "Security"],
           },
           {
@@ -666,7 +690,7 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           {
             name: "APIs & Speech Audio Ingestion",
             description: "Designing RESTful endpoints, secure authenticated file uploads, and speech AI integrations.",
-            appliedIn: "Lexfluência (Whisper STT)",
+            appliedIn: "fluênciaCAP (Whisper STT)",
             tags: ["RESTful", "Audio Upload", "JSON", "Fetch API"],
           },
         ],
@@ -690,7 +714,7 @@ export const portfolioContent: Record<Language, PortfolioContent> = {
           {
             name: "Algorithms & Applied AI",
             description: "OpenAI Whisper speech recognition integration and custom LCS algorithm for phonetic diffing.",
-            appliedIn: "Lexfluência (Diffing LCS O(m×n))",
+            appliedIn: "fluênciaCAP (Diffing LCS O(m×n))",
             tags: ["Whisper API", "LCS Algorithm", "Diffing", "Speech-to-Text"],
           },
           {

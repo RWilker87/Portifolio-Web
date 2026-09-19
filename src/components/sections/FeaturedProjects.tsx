@@ -7,13 +7,14 @@ import { ProjectModal } from "@/components/ui/ProjectModal";
 import { Card } from "@/components/ui/Card";
 import { Layers, ArrowUpRight, Globe, Maximize2, CheckCircle2, Sparkles, ShieldCheck, Cpu } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { cn } from "@/lib/utils";
 
 export const FeaturedProjects: React.FC = () => {
   const { content, language } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<CaseStudy | null>(null);
 
   const featuredProject =
-    content.caseStudies.find((p) => p.featured || p.id === "lexfluencia") ||
+    content.caseStudies.find((p) => p.featured || p.id === "fluenciacap") ||
     content.caseStudies[0];
 
   const secondaryProjects = content.caseStudies.filter(
@@ -43,7 +44,7 @@ export const FeaturedProjects: React.FC = () => {
         </div>
 
         {/* ==================================================================== */}
-        {/* FLAGSHIP CASE: LEXFLUÊNCIA (PROJETO EM DESTAQUE)                    */}
+        {/* FLAGSHIP CASE: FLUÊNCIACAP (PROJETO EM DESTAQUE)                    */}
         {/* ==================================================================== */}
         <div className="mb-14">
           <Card className="p-0 overflow-hidden border-zinc-800 bg-zinc-950/90 shadow-xl rounded-2xl">
@@ -244,20 +245,39 @@ export const FeaturedProjects: React.FC = () => {
               >
                 {/* Media Thumbnail Container */}
                 <div
-                  className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-900 cursor-pointer border-b border-zinc-800/80"
+                  className={cn(
+                    "relative aspect-[16/9] w-full overflow-hidden cursor-pointer border-b border-zinc-800/80",
+                    project.id === "familia-escola"
+                      ? "bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900 flex items-center justify-center p-4"
+                      : "bg-zinc-900"
+                  )}
                   onClick={() => setSelectedProject(project)}
                 >
                   {project.visualPreview.mediaUrl ? (
-                    <Image
-                      src={project.visualPreview.mediaUrl}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={project.visualPreview.mediaUrl}
+                        alt={project.title}
+                        fill
+                        className={cn(
+                          "transition-transform duration-500 ease-out group-hover:scale-[1.03]",
+                          project.id === "familia-escola"
+                            ? "object-contain p-2 drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]"
+                            : "object-cover object-top"
+                        )}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-zinc-900 text-zinc-400 text-xs">
                       {project.title}
+                    </div>
+                  )}
+
+                  {/* Badge overlay on thumbnail for logo */}
+                  {project.id === "familia-escola" && (
+                    <div className="absolute top-3 right-3 px-2 py-0.5 rounded-md bg-zinc-900/90 border border-zinc-800 text-[10px] font-mono text-zinc-400 backdrop-blur-sm shadow-sm">
+                      {language === "en" ? "Official Logo" : "Logotipo Oficial"}
                     </div>
                   )}
 
@@ -284,13 +304,25 @@ export const FeaturedProjects: React.FC = () => {
                       )}
                     </div>
 
-                    {/* Title */}
-                    <h4
-                      onClick={() => setSelectedProject(project)}
-                      className="text-lg font-bold text-zinc-100 tracking-tight group-hover:text-white cursor-pointer transition-colors mb-2"
-                    >
-                      {project.title}
-                    </h4>
+                    {/* Title with Logo Icon */}
+                    <div className="flex items-center gap-2.5 mb-2">
+                      {project.id === "familia-escola" && (
+                        <div className="relative w-7 h-7 rounded-lg overflow-hidden shrink-0 bg-zinc-900 border border-zinc-800 p-1 flex items-center justify-center shadow-sm">
+                          <Image
+                            src="/media/familia-escola/logo-familia-escola.png"
+                            alt="Logo Família & Escola"
+                            fill
+                            className="object-contain p-0.5"
+                          />
+                        </div>
+                      )}
+                      <h4
+                        onClick={() => setSelectedProject(project)}
+                        className="text-lg font-bold text-zinc-100 tracking-tight group-hover:text-white cursor-pointer transition-colors"
+                      >
+                        {project.title}
+                      </h4>
+                    </div>
 
                     {/* Tagline */}
                     <p className="text-xs sm:text-sm text-zinc-300 font-medium mb-3">
