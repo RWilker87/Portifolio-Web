@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Toast } from "@/components/ui/Toast";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
-import { Copy, Check, ArrowUpRight, MapPin, Mail, FileText } from "lucide-react";
+import { Copy, Check, ArrowUpRight, MapPin, Mail, FileText, Download } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export const ContactSection: React.FC = () => {
@@ -144,6 +144,7 @@ export const ContactSection: React.FC = () => {
           {/* Curriculum Vitae (PDF) */}
           <a
             href={content.profile.contact.cvUrl || "/cv-rian-wilker.pdf"}
+            download="CV - Rian Wilker Santos Melo.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="p-5 sm:p-6 rounded-2xl bg-zinc-950/80 border border-emerald-900/40 hover:border-emerald-500/50 transition-colors group flex items-center justify-between"
@@ -157,11 +158,11 @@ export const ContactSection: React.FC = () => {
                   {language === "en" ? "Curriculum Vitae" : "Currículo PDF"}
                 </span>
                 <span className="text-sm font-semibold text-zinc-200 group-hover:text-white truncate block">
-                  {language === "en" ? "View / Download" : "Baixar / Visualizar"}
+                  {language === "en" ? "Download CV" : "Baixar Currículo"}
                 </span>
               </div>
             </div>
-            <ArrowUpRight className="w-4 h-4 text-emerald-500 group-hover:text-emerald-300 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+            <Download className="w-4 h-4 text-emerald-500 group-hover:text-emerald-300 transition-transform group-hover:translate-y-0.5 shrink-0" />
           </a>
 
           {/* Location */}

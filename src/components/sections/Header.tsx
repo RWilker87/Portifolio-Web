@@ -108,6 +108,7 @@ export const Header: React.FC = () => {
           {content.profile.contact.cvUrl && (
             <a
               href={content.profile.contact.cvUrl}
+              download="CV - Rian Wilker Santos Melo.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs font-mono text-zinc-400 hover:text-zinc-100 transition-colors px-1"
@@ -196,11 +197,12 @@ export const Header: React.FC = () => {
               {content.profile.contact.cvUrl && (
                 <a
                   href={content.profile.contact.cvUrl}
+                  download="CV - Rian Wilker Santos Melo.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-white"
                 >
-                  CV ↗
+                  CV ↓
                 </a>
               )}
               <a

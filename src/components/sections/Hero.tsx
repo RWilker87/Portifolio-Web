@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowDown, Copy, Check, ArrowUpRight, MapPin, FileText } from "lucide-react";
+import { ArrowDown, Copy, Check, ArrowUpRight, MapPin, FileText, Download } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { Toast } from "@/components/ui/Toast";
 import { useLanguage } from "@/context/LanguageContext";
@@ -109,13 +109,14 @@ export const Hero: React.FC = () => {
               {content.profile.contact.cvUrl && (
                 <a
                   href={content.profile.contact.cvUrl}
+                  download="CV - Rian Wilker Santos Melo.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-900/80 text-zinc-300 hover:text-white hover:bg-zinc-800 border border-zinc-800 text-sm font-medium transition-all cursor-pointer active:scale-[0.98]"
-                  title={language === "en" ? "Download CV in PDF" : "Acessar Currículo em PDF"}
+                  title={language === "en" ? "Download CV in PDF" : "Baixar Currículo em PDF"}
                 >
-                  <FileText className="w-4 h-4 text-emerald-400" />
-                  <span>{content.nav.downloadCv || "Currículo"}</span>
+                  <Download className="w-4 h-4 text-emerald-400" />
+                  <span>{content.nav.downloadCv || "Baixar CV"}</span>
                 </a>
               )}
 
@@ -151,6 +152,7 @@ export const Hero: React.FC = () => {
               {content.profile.contact.cvUrl && (
                 <a
                   href={content.profile.contact.cvUrl}
+                  download="CV - Rian Wilker Santos Melo.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-emerald-300 text-emerald-400/90 transition-colors flex items-center gap-1.5"
